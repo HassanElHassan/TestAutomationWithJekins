@@ -5,6 +5,7 @@ if jenkins already installed: admin - initialAdminPassword
 Java Path: http://localhost:8080/ -> Manage Jenkins -> Global Tool Configuration -> Add JDK -> Name[JAVA_HOME] Java_Home[C:\Program Files\Java\jdk-11.0.11]
 GIT Path: http://localhost:8080/ -> Manage Jenkins -> Global Tool Configuration -> Path to Git executable[C:/Users/HAHASSAN/AppData/Local/Programs/Git/bin/git.exe]
 Python Path: http://localhost:8080/ -> Manage Jenkins -> Configure System -> Global properties -> Environment variables -> Name[Python_Home] Value[C:\Users\HAHASSAN\AppData\Local\Programs\Python\Python39;C:\Users\HAHASSAN\AppData\Local\Programs\Python\Python39\Scripts] Name[Python_Script] Value[C:\Users\HAHASSAN\AppData\Local\Programs\Python\Python39\Scripts]
+remark on Python Path: Install custom tools in the project configuration can be used to install Python
 Drivers Path: http://localhost:8080/ -> Manage Jenkins -> Configure System -> Global properties -> Environment variables -> Name[Selenium_Drivers] Value[C:\Users\HAHASSAN\AppData\Local\Programs\SeleniumDrivers]
 
 Allure Plugin: http://localhost:8080/ -> Manage Jenkins -> Manage Plugins -> Available -> Allure Jenkins Plugin
@@ -12,3 +13,14 @@ Allure CLI:
 - install scoop: https://github.com/lukesampson/scoop -> Windows PowerShell -> iwr -useb get.scoop.sh | iex
 - install allure: https://docs.qameta.io/allure/ or https://github.com/allure-framework/allure2 -> scoop install allure
 - Allure Path: http://localhost:8080/ -> Manage Jenkins -> Global Tool Configuration -> Allure Commandline -> Name[Allure] Installation directory[C:\Users\HAHASSAN\scoop\apps\allure\2.14.0]
+
+New item -> Freestyle project -> OK
+
+Fetch from Git:
+Source Code Management -> Git -> Repository URL -> Credentials -> Add -> Jenkins -> Username and passzord -> Add -> select Credentials -> Apply and save
+test if fetch worked: Build Now -> Console Output in build
+
+Set Environment variable and run batch file:
+Conigure -> Build -> Execute Windows batch command ->
+set Path=%Python_Home;%Path%
+Library/Lib.bat

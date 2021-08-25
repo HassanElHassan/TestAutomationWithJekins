@@ -33,3 +33,4 @@ test if worked: Build Now -> Console Output in build
 
 Allure Report:
 Update robot execute to -> robot --listener allure_robotframework TestCases
+Configure -> Post-build Actions ->

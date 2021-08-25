@@ -1,0 +1,5 @@
+bin/jenkins.war.bak
+bin/jenkins.war.tmp
+log.html
+output.xml
+report.html

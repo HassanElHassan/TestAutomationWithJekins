@@ -21,6 +21,12 @@ Source Code Management -> Git -> Repository URL -> Credentials -> Add -> Jenkins
 test if fetch worked: Build Now -> Console Output in build
 
 Set Environment variable and run batch file:
-Conigure -> Build -> Execute Windows batch command ->
-set Path=%Python_Home;%Path%
+Configure -> Build -> Execute Windows batch command ->
+set Path=%Python_Home%;%Path%
 Library/Lib.bat
+test if worked: Build Now -> Console Output in build
+
+Execute Jenkins with Robot:
+Configure -> Build -> Execute Windows batch command ->
+robot TestCases
+test if worked: Build Now -> Console Output in build

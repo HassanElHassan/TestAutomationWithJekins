@@ -14,6 +14,8 @@ Allure CLI:
 - install allure: https://docs.qameta.io/allure/ or https://github.com/allure-framework/allure2 -> scoop install allure
 - Allure Path: http://localhost:8080/ -> Manage Jenkins -> Global Tool Configuration -> Allure Commandline -> Name[Allure] Installation directory[C:\Users\HAHASSAN\scoop\apps\allure\2.14.0]
 
+Robot Plugin: http://localhost:8080/ -> Manage Jenkins -> Manage Plugins -> Available -> Robot Framework plugin
+
 New item -> Freestyle project -> OK
 
 Fetch from Git:
@@ -28,9 +30,14 @@ test if worked: Build Now -> Console Output in build
 
 Execute Jenkins with Robot:
 Configure -> Build -> Execute Windows batch command ->
-robot TestCases
+robot -d results TestCases
+exit 0 <- optional can solve some problems
 test if worked: Build Now -> Console Output in build
 
 Allure Report:
-Update robot execute to -> robot --listener allure_robotframework TestCases
-Configure -> Post-build Actions ->
+Update robot execute to -> robot --listener allure_robotframework -d results TestCases
+Configure -> Post-build Actions -> Allure Report -> Path -> output/allure -> Apply and Save
+
+Robot Results:
+Configure -> Post-build Actions -> Publish Robot Framework test results -> Directory of Robot output -> results -> Apply and Save
+
